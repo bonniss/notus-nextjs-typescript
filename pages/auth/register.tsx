@@ -1,10 +1,11 @@
 import React from "react";
+import { NextPageWithLayout } from "pages/_app";
 
 // layout for page
 
-import Auth from "layouts/Auth";
+import { getAuthLayout } from "layouts/auth";
 
-export default function Register() {
+const Register: NextPageWithLayout = () => {
   return (
     <>
       <div className="container mx-auto px-4 h-full">
@@ -120,4 +121,5 @@ export default function Register() {
   );
 }
 
-Register.layout = Auth;
+Register.getLayout = getAuthLayout;
+export default Register;

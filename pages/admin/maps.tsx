@@ -1,14 +1,13 @@
 import React from "react";
+import { NextPageWithLayout } from "pages/_app";
 
 // components
-
 import MapExample from "components/Maps/MapExample";
 
 // layout for page
+import { getAdminLayout } from "layouts/admin";
 
-import Admin from "layouts/Admin";
-
-export default function Maps() {
+const Maps: NextPageWithLayout = () => {
   return (
     <>
       <div className="flex flex-wrap">
@@ -22,4 +21,5 @@ export default function Maps() {
   );
 }
 
-Maps.layout = Admin;
+Maps.getLayout = getAdminLayout;
+export default Maps;

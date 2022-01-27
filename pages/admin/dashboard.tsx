@@ -1,17 +1,15 @@
 import React from "react";
 
 // components
-
 import CardLineChart from "components/Cards/CardLineChart";
 import CardBarChart from "components/Cards/CardBarChart";
 import CardPageVisits from "components/Cards/CardPageVisits";
 import CardSocialTraffic from "components/Cards/CardSocialTraffic";
 
-// layout for page
+import { NextPageWithLayout } from "pages/_app";
+import { getAdminLayout } from "layouts/admin";
 
-import Admin from "layouts/Admin";
-
-export default function Dashboard() {
+const Dashboard: NextPageWithLayout = () => {
   return (
     <>
       <div className="flex flex-wrap">
@@ -34,4 +32,5 @@ export default function Dashboard() {
   );
 }
 
-Dashboard.layout = Admin;
+Dashboard.getLayout = getAdminLayout;
+export default Dashboard

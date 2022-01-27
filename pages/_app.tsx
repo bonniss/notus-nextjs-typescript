@@ -1,12 +1,22 @@
-import React from "react";
-import App from "next/app";
+import React, { ReactElement, ReactNode } from "react";
+import App, { AppProps } from "next/app";
+import { NextPage } from "next";
 import Head from "next/head";
 
 import "components/@transition";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "styles/tailwind.css";
+import { getLayout as getDefaultLayout } from "layouts/default";
 
-export default class MyApp extends App {
+export type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+export default class MyApp extends App<AppPropsWithLayout> {
   componentDidMount() {
     let comment = document.createComment(`
 =========================================================
@@ -42,7 +52,7 @@ export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
 
-    const Layout = Component.layout || (({ children }) => <>{children}</>);
+    const getLayout = Component.getLayout ?? getDefaultLayout
 
     return (
       <React.Fragment>
@@ -54,9 +64,7 @@ export default class MyApp extends App {
           <title>Notus NextJS by Creative Tim</title>
           <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
         </Head>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        {getLayout(<Component {...pageProps} />)}
       </React.Fragment>
     );
   }

@@ -1,15 +1,14 @@
 import React from "react";
+import { NextPageWithLayout } from "pages/_app";
 
 // components
-
 import CardSettings from "components/Cards/CardSettings";
 import CardProfile from "components/Cards/CardProfile";
 
 // layout for page
+import { getAdminLayout } from "layouts/admin";
 
-import Admin from "layouts/Admin";
-
-export default function Settings() {
+const Settings: NextPageWithLayout = () => {
   return (
     <>
       <div className="flex flex-wrap">
@@ -24,4 +23,5 @@ export default function Settings() {
   );
 }
 
-Settings.layout = Admin;
+Settings.getLayout = getAdminLayout;
+export default Settings;

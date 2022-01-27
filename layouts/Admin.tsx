@@ -1,13 +1,12 @@
 import React from "react";
 
 // components
-
 import AdminNavbar from "components/Navbars/AdminNavbar";
 import Sidebar from "components/Sidebar/Sidebar";
 import HeaderStats from "components/Headers/HeaderStats";
 import FooterAdmin from "components/Footers/FooterAdmin";
 
-export default function Admin({ children }) {
+export default function AdminLayout({ children }) {
   return (
     <>
       <Sidebar />
@@ -23,3 +22,9 @@ export default function Admin({ children }) {
     </>
   );
 }
+
+export const getAdminLayout = (page: any) => (
+  <AdminLayout>
+    {page}
+  </AdminLayout>
+)

@@ -1,14 +1,13 @@
 import React from "react";
+import { NextPageWithLayout } from "pages/_app";
 
 // components
-
 import CardTable from "components/Cards/CardTable";
 
 // layout for page
+import { getAdminLayout } from "layouts/admin";
 
-import Admin from "layouts/Admin";
-
-export default function Tables() {
+const Tables: NextPageWithLayout = () => {
   return (
     <>
       <div className="flex flex-wrap mt-4">
@@ -23,4 +22,5 @@ export default function Tables() {
   );
 }
 
-Tables.layout = Admin;
+Tables.getLayout = getAdminLayout;
+export default Tables;

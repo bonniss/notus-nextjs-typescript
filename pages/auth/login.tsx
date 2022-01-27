@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
+import { NextPageWithLayout } from "pages/_app";
 
 // layout for page
+import { getAuthLayout } from 'layouts/auth';
 
-import Auth from "layouts/Auth";
-
-export default function Login() {
+const Login: NextPageWithLayout = () => {
   return (
     <>
       <div className="container mx-auto px-4 h-full">
@@ -117,4 +117,5 @@ export default function Login() {
   );
 }
 
-Login.layout = Auth;
+Login.getLayout = getAuthLayout;
+export default Login;
