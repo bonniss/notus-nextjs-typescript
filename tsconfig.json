@@ -19,17 +19,10 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "components": [
-        "components/*"
-      ],
-      "layouts": [
-        "layouts/*"
-      ],
-      "styles": [
-        "styles/*"
-      ]
-    },
-    "incremental": true
+      "components/*": ["components/*"],
+      "layouts/*": ["layouts/*"],
+      "styles/*": ["styles/*"],
+    }
   },
   "include": [
     "next-env.d.ts",
